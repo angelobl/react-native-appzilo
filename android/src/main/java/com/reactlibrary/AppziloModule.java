@@ -7,6 +7,8 @@ import com.facebook.react.bridge.Callback;
 
 import com.appzilo.sdk.Offerwall;
 
+import android.content.Intent;
+
 public class AppziloModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
@@ -14,7 +16,8 @@ public class AppziloModule extends ReactContextBaseJavaModule {
     public AppziloModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
-        Offerwall.onNewIntent(reactContext.getApplicationContext(), getCurrentActivity().getIntent());
+        Intent intent = new Intent();
+        Offerwall.onNewIntent(reactContext.getApplicationContext(), intent);
     }
 
     @Override
